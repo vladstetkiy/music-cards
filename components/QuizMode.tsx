@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { KeyValuePair, AnswerMode } from "@/app/page";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
-import { Check, X, Sparkles, RefreshCw } from "lucide-react";
+import { Check, X, RefreshCw } from "lucide-react";
 
 interface QuizModeProps {
   pairs: KeyValuePair[];
@@ -142,7 +142,6 @@ export function QuizMode({ pairs, answerMode, setAnswerMode, inverted, setInvert
     }
   }, [setInverted, getRandomPair, generateQuestion, answerMode, generateOptions]);
 
-  // Initial load
   useEffect(() => {
     if (validPairs.length > 0 && !currentPair && isInitialMount.current) {
       isInitialMount.current = false;
@@ -152,7 +151,7 @@ export function QuizMode({ pairs, answerMode, setAnswerMode, inverted, setInvert
 
   useEffect(() => {
     nextQuestion();
-  }, [answerMode]);
+  }, [answerMode, inverted]);
 
   useEffect(() => {
   if (answerMode === "manual" && !feedback) {
@@ -175,38 +174,32 @@ export function QuizMode({ pairs, answerMode, setAnswerMode, inverted, setInvert
   if (!currentQuestion.question) return null;
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-[70vh] gap-8">
-      <div className="flex items-center gap-2 text-lg">
-        <Sparkles className="w-5 h-5 text-yellow-500" />
-        <span className="font-medium">Винстрик:</span>
-        <span className="text-2xl font-bold text-green-600">{winStreak}</span>
-      </div>
-
-      <Card className="w-full max-w-md">
-        <CardContent className="pt-6 space-y-4">
+    <div className="flex flex-col items-center justify-start min-h-[70vh]">
+      <Card className="w-full max-w-md mb-8">
+        <CardContent className="pt-2 space-y-4">
           <div className="flex flex-col gap-3">
             <div className="flex items-center justify-between">
               <Label>Режим ответа</Label>
             </div>
-            <div className="flex justify-center gap-4">
+            <div className="flex flex-col md:flex-row justify-center gap-2">
               <Button
                 variant={answerMode === "multiple-choice" ? "default" : "outline"}
                 onClick={() => handleModeChange("multiple-choice")}
-                size="sm"
+                size="lg"
               >
                 3 варианта
               </Button>
               <Button
                 variant={answerMode === "all-values" ? "default" : "outline"}
                 onClick={() => handleModeChange("all-values")}
-                size="sm"
+                size="lg"
               >
                 Все значения
               </Button>
               <Button
                 variant={answerMode === "manual" ? "default" : "outline"}
                 onClick={() => handleModeChange("manual")}
-                size="sm"
+                size="lg"
               >
                 Ручной ввод
               </Button>
@@ -222,6 +215,7 @@ export function QuizMode({ pairs, answerMode, setAnswerMode, inverted, setInvert
               id="invert-mode"
               checked={inverted}
               onCheckedChange={handleInvertChange}
+              className="scale-130"
             />
           </div>
           <p className="text-xs text-muted-foreground text-center">
@@ -230,7 +224,13 @@ export function QuizMode({ pairs, answerMode, setAnswerMode, inverted, setInvert
         </CardContent>
       </Card>
 
-      <Card className="w-full max-w-2xl">
+      <Card className="p-4 border-b-2 rounded-b-[20px] relative z-10">
+        <CardContent className="flex justify-center text-xl">
+          <span className="text-2xl font-bold text-green-600">{winStreak}</span>
+        </CardContent>
+      </Card>
+
+      <Card className="w-full max-w-2xl rounded-t-[20px] -mt-2.5 relative z-0">
         <CardContent className="p-8">
           <div className="text-center">
             <h2 className="text-6xl md:text-8xl font-bold mb-8">
@@ -253,7 +253,7 @@ export function QuizMode({ pairs, answerMode, setAnswerMode, inverted, setInvert
                 </Button>
               </div>
             ) : (
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                 {options.map((option, idx) => (
                   <Button
                     key={idx}

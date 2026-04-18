@@ -52,7 +52,7 @@ export function EditorMode({ pairs, setPairs }: EditorModeProps) {
           <CardHeader>
             <CardTitle className="flex items-center justify-between">
               <span>Пары ключ-значение</span>
-              <Button onClick={addPair} size="sm" variant="outline">
+              <Button onClick={addPair} size="lg" variant="outline">
                 <Plus className="w-4 h-4 mr-1" />
                 Добавить пару
               </Button>
