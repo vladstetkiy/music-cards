@@ -20,12 +20,12 @@ export default function Home() {
   const [isQuizMode, setIsQuizMode] = useState(false);
   const [pairs, setPairs] = useState<KeyValuePair[]>([
     { id: "1", key: "A", value: "Ля" },
+    { id: "7", key: "B", value: "Си" },
     { id: "2", key: "C", value: "До" },
     { id: "3", key: "D", value: "Ре" },
     { id: "4", key: "E", value: "Ми" },
     { id: "5", key: "F", value: "Фа" },
     { id: "6", key: "G", value: "Соль" },
-    { id: "7", key: "H", value: "Си" },
   ]);
   const [answerMode, setAnswerMode] = useState<AnswerMode>("multiple-choice");
   const [inverted, setInverted] = useState(false);
@@ -88,9 +88,9 @@ export default function Home() {
             </Toggle>
           </div>
           <div className="flex items-center gap-2">
-            <Sun className="w-4 h-4" />
-            <Switch checked={isDark} onCheckedChange={toggleTheme} />
-            <Moon className="w-4 h-4" />
+            <Sun className="w-5 h-5" />
+            <Switch checked={isDark} onCheckedChange={toggleTheme} className="scale-150 mr-1 ml-1"/>
+            <Moon className="w-5 h-5" />
           </div>
         </div>
 

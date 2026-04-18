@@ -803,14 +803,12 @@ function QuizMode({ pairs, answerMode, setAnswerMode, inverted, setInverted }) {
             setWinStreak((prev)=>prev + 1);
             setTimeout(()=>{
                 nextQuestion();
-                manualInputRef.current?.focus();
             }, 800);
         } else {
             setFeedback("error");
             setWinStreak(0);
             setTimeout(()=>{
                 nextQuestion();
-                manualInputRef.current?.focus();
             }, 1500);
         }
     };
@@ -818,9 +816,6 @@ function QuizMode({ pairs, answerMode, setAnswerMode, inverted, setInverted }) {
         if (manualInput.trim()) {
             handleAnswer(manualInput.trim());
         }
-        setTimeout(()=>{
-            manualInputRef.current?.focus();
-        }, 15000);
     };
     const handleInvertChange = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useCallback"])({
         "QuizMode.useCallback[handleInvertChange]": (newInverted)=>{
@@ -872,9 +867,7 @@ function QuizMode({ pairs, answerMode, setAnswerMode, inverted, setInverted }) {
             }
         }
     }["QuizMode.useEffect"], [
-        currentQuestion,
-        answerMode,
-        feedback
+        currentQuestion
     ]);
     if (validPairs.length === 0) {
         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
@@ -885,17 +878,17 @@ function QuizMode({ pairs, answerMode, setAnswerMode, inverted, setInverted }) {
                     children: "Нет валидных пар. Добавьте пары в режиме редактора"
                 }, void 0, false, {
                     fileName: "[project]/components/QuizMode.tsx",
-                    lineNumber: 166,
+                    lineNumber: 161,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/QuizMode.tsx",
-                lineNumber: 165,
+                lineNumber: 160,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/components/QuizMode.tsx",
-            lineNumber: 164,
+            lineNumber: 159,
             columnNumber: 7
         }, this);
     }
@@ -904,7 +897,7 @@ function QuizMode({ pairs, answerMode, setAnswerMode, inverted, setInverted }) {
         className: "flex flex-col items-center justify-start min-h-[70vh]",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
-                className: "w-full max-w-md mb-8",
+                className: "mb-8 w-full md:w-fit",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
                     className: "pt-2 space-y-4",
                     children: [
@@ -917,12 +910,12 @@ function QuizMode({ pairs, answerMode, setAnswerMode, inverted, setInverted }) {
                                         children: "Режим ответа"
                                     }, void 0, false, {
                                         fileName: "[project]/components/QuizMode.tsx",
-                                        lineNumber: 182,
+                                        lineNumber: 177,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/components/QuizMode.tsx",
-                                    lineNumber: 181,
+                                    lineNumber: 176,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -935,7 +928,7 @@ function QuizMode({ pairs, answerMode, setAnswerMode, inverted, setInverted }) {
                                             children: "3 варианта"
                                         }, void 0, false, {
                                             fileName: "[project]/components/QuizMode.tsx",
-                                            lineNumber: 185,
+                                            lineNumber: 180,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -945,7 +938,7 @@ function QuizMode({ pairs, answerMode, setAnswerMode, inverted, setInverted }) {
                                             children: "Все значения"
                                         }, void 0, false, {
                                             fileName: "[project]/components/QuizMode.tsx",
-                                            lineNumber: 192,
+                                            lineNumber: 187,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -955,19 +948,19 @@ function QuizMode({ pairs, answerMode, setAnswerMode, inverted, setInverted }) {
                                             children: "Ручной ввод"
                                         }, void 0, false, {
                                             fileName: "[project]/components/QuizMode.tsx",
-                                            lineNumber: 199,
+                                            lineNumber: 194,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/QuizMode.tsx",
-                                    lineNumber: 184,
+                                    lineNumber: 179,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/QuizMode.tsx",
-                            lineNumber: 180,
+                            lineNumber: 175,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -981,30 +974,30 @@ function QuizMode({ pairs, answerMode, setAnswerMode, inverted, setInverted }) {
                                             className: "w-4 h-4"
                                         }, void 0, false, {
                                             fileName: "[project]/components/QuizMode.tsx",
-                                            lineNumber: 211,
+                                            lineNumber: 206,
                                             columnNumber: 15
                                         }, this),
                                         "Инвертировать"
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/QuizMode.tsx",
-                                    lineNumber: 210,
+                                    lineNumber: 205,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$switch$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Switch"], {
                                     id: "invert-mode",
                                     checked: inverted,
                                     onCheckedChange: handleInvertChange,
-                                    className: "scale-130"
+                                    className: "scale-150"
                                 }, void 0, false, {
                                     fileName: "[project]/components/QuizMode.tsx",
-                                    lineNumber: 214,
+                                    lineNumber: 209,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/QuizMode.tsx",
-                            lineNumber: 209,
+                            lineNumber: 204,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1012,18 +1005,18 @@ function QuizMode({ pairs, answerMode, setAnswerMode, inverted, setInverted }) {
                             children: inverted ? "Показывается значение, нужно ввести ключ" : "Показывается ключ, нужно ввести значение"
                         }, void 0, false, {
                             fileName: "[project]/components/QuizMode.tsx",
-                            lineNumber: 221,
+                            lineNumber: 216,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/QuizMode.tsx",
-                    lineNumber: 179,
+                    lineNumber: 174,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/QuizMode.tsx",
-                lineNumber: 178,
+                lineNumber: 173,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
@@ -1035,17 +1028,17 @@ function QuizMode({ pairs, answerMode, setAnswerMode, inverted, setInverted }) {
                         children: winStreak
                     }, void 0, false, {
                         fileName: "[project]/components/QuizMode.tsx",
-                        lineNumber: 229,
+                        lineNumber: 224,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/components/QuizMode.tsx",
-                    lineNumber: 228,
+                    lineNumber: 223,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/QuizMode.tsx",
-                lineNumber: 227,
+                lineNumber: 222,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
@@ -1060,7 +1053,7 @@ function QuizMode({ pairs, answerMode, setAnswerMode, inverted, setInverted }) {
                                 children: currentQuestion.question
                             }, void 0, false, {
                                 fileName: "[project]/components/QuizMode.tsx",
-                                lineNumber: 236,
+                                lineNumber: 231,
                                 columnNumber: 13
                             }, this),
                             answerMode === "manual" ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1076,7 +1069,7 @@ function QuizMode({ pairs, answerMode, setAnswerMode, inverted, setInverted }) {
                                         disabled: !!feedback
                                     }, void 0, false, {
                                         fileName: "[project]/components/QuizMode.tsx",
-                                        lineNumber: 242,
+                                        lineNumber: 237,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -1085,13 +1078,13 @@ function QuizMode({ pairs, answerMode, setAnswerMode, inverted, setInverted }) {
                                         children: "Ответить"
                                     }, void 0, false, {
                                         fileName: "[project]/components/QuizMode.tsx",
-                                        lineNumber: 251,
+                                        lineNumber: 246,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/QuizMode.tsx",
-                                lineNumber: 241,
+                                lineNumber: 236,
                                 columnNumber: 15
                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "grid grid-cols-2 md:grid-cols-3 gap-3",
@@ -1106,34 +1099,48 @@ function QuizMode({ pairs, answerMode, setAnswerMode, inverted, setInverted }) {
                                         children: option
                                     }, idx, false, {
                                         fileName: "[project]/components/QuizMode.tsx",
-                                        lineNumber: 258,
+                                        lineNumber: 253,
                                         columnNumber: 19
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/components/QuizMode.tsx",
-                                lineNumber: 256,
+                                lineNumber: 251,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/QuizMode.tsx",
-                        lineNumber: 235,
+                        lineNumber: 230,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/components/QuizMode.tsx",
-                    lineNumber: 234,
+                    lineNumber: 229,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/QuizMode.tsx",
-                lineNumber: 233,
+                lineNumber: 228,
                 columnNumber: 7
             }, this),
             feedback === "success" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "fixed inset-0 pointer-events-none flex items-center justify-center",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$check$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Check$3e$__["Check"], {
                     className: "w-32 h-32 text-green-500 animate-ping opacity-50"
+                }, void 0, false, {
+                    fileName: "[project]/components/QuizMode.tsx",
+                    lineNumber: 282,
+                    columnNumber: 11
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/components/QuizMode.tsx",
+                lineNumber: 281,
+                columnNumber: 9
+            }, this),
+            feedback === "error" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "fixed inset-0 pointer-events-none flex items-center justify-center",
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$x$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__X$3e$__["X"], {
+                    className: "w-32 h-32 text-red-500 animate-pulse opacity-50"
                 }, void 0, false, {
                     fileName: "[project]/components/QuizMode.tsx",
                     lineNumber: 287,
@@ -1143,25 +1150,11 @@ function QuizMode({ pairs, answerMode, setAnswerMode, inverted, setInverted }) {
                 fileName: "[project]/components/QuizMode.tsx",
                 lineNumber: 286,
                 columnNumber: 9
-            }, this),
-            feedback === "error" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "fixed inset-0 pointer-events-none flex items-center justify-center",
-                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$x$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__X$3e$__["X"], {
-                    className: "w-32 h-32 text-red-500 animate-pulse opacity-50"
-                }, void 0, false, {
-                    fileName: "[project]/components/QuizMode.tsx",
-                    lineNumber: 292,
-                    columnNumber: 11
-                }, this)
-            }, void 0, false, {
-                fileName: "[project]/components/QuizMode.tsx",
-                lineNumber: 291,
-                columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/QuizMode.tsx",
-        lineNumber: 177,
+        lineNumber: 172,
         columnNumber: 5
     }, this);
 }
@@ -1210,6 +1203,11 @@ function Home() {
             value: "Ля"
         },
         {
+            id: "7",
+            key: "B",
+            value: "Си"
+        },
+        {
             id: "2",
             key: "C",
             value: "До"
@@ -1233,11 +1231,6 @@ function Home() {
             id: "6",
             key: "G",
             value: "Соль"
-        },
-        {
-            id: "7",
-            key: "H",
-            value: "Си"
         }
     ]);
     const [answerMode, setAnswerMode] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("multiple-choice");
@@ -1346,7 +1339,7 @@ function Home() {
                             className: "flex items-center gap-2",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$sun$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Sun$3e$__["Sun"], {
-                                    className: "w-4 h-4"
+                                    className: "w-5 h-5"
                                 }, void 0, false, {
                                     fileName: "[project]/app/page.tsx",
                                     lineNumber: 91,
@@ -1354,14 +1347,15 @@ function Home() {
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$switch$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Switch"], {
                                     checked: isDark,
-                                    onCheckedChange: toggleTheme
+                                    onCheckedChange: toggleTheme,
+                                    className: "scale-150 mr-1 ml-1"
                                 }, void 0, false, {
                                     fileName: "[project]/app/page.tsx",
                                     lineNumber: 92,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$moon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Moon$3e$__["Moon"], {
-                                    className: "w-4 h-4"
+                                    className: "w-5 h-5"
                                 }, void 0, false, {
                                     fileName: "[project]/app/page.tsx",
                                     lineNumber: 93,
@@ -1409,7 +1403,7 @@ function Home() {
         columnNumber: 5
     }, this);
 }
-_s(Home, "+7EZTkLpq/6SbMFy/fdxBq4cy5I=");
+_s(Home, "H1vCTU6pRANcY2AWMAeZ1Z33Dgk=");
 _c = Home;
 var _c;
 __turbopack_context__.k.register(_c, "Home");

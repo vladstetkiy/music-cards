@@ -105,14 +105,12 @@ export function QuizMode({ pairs, answerMode, setAnswerMode, inverted, setInvert
       setWinStreak((prev) => prev + 1);
       setTimeout(() => {
         nextQuestion();
-        manualInputRef.current?.focus();
       }, 800);
     } else {
       setFeedback("error");
       setWinStreak(0);
       setTimeout(() => {
         nextQuestion();
-        manualInputRef.current?.focus();
       }, 1500);
     }
   };
@@ -121,9 +119,6 @@ export function QuizMode({ pairs, answerMode, setAnswerMode, inverted, setInvert
     if (manualInput.trim()) {
       handleAnswer(manualInput.trim());
     }
-    setTimeout(() => {
-      manualInputRef.current?.focus();
-    }, 15000);
   };
 
   const handleInvertChange = useCallback((newInverted: boolean) => {
@@ -154,10 +149,10 @@ export function QuizMode({ pairs, answerMode, setAnswerMode, inverted, setInvert
   }, [answerMode, inverted]);
 
   useEffect(() => {
-  if (answerMode === "manual" && !feedback) {
-    manualInputRef.current?.focus();
-  }
-}, [currentQuestion, answerMode, feedback]);
+    if (answerMode === "manual" && !feedback) {
+      manualInputRef.current?.focus();
+    }
+  }, [currentQuestion]);
 
   if (validPairs.length === 0) {
     return (
@@ -175,7 +170,7 @@ export function QuizMode({ pairs, answerMode, setAnswerMode, inverted, setInvert
 
   return (
     <div className="flex flex-col items-center justify-start min-h-[70vh]">
-      <Card className="w-full max-w-md mb-8">
+      <Card className="mb-8 w-full md:w-fit">
         <CardContent className="pt-2 space-y-4">
           <div className="flex flex-col gap-3">
             <div className="flex items-center justify-between">
@@ -215,7 +210,7 @@ export function QuizMode({ pairs, answerMode, setAnswerMode, inverted, setInvert
               id="invert-mode"
               checked={inverted}
               onCheckedChange={handleInvertChange}
-              className="scale-130"
+              className="scale-150"
             />
           </div>
           <p className="text-xs text-muted-foreground text-center">
