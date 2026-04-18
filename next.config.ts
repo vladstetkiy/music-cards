@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
     unoptimized: true,  // Отключаем оптимизацию изображений (не нужна для статики)
   },
   trailingSlash: true,  // Добавляем слеши в конце URL (рекомендуется для GitHub Pages)
+  basePath: "/music-cards",
 };
 
 export default nextConfig;
