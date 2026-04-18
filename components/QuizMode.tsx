@@ -39,11 +39,20 @@ export function QuizMode({ pairs, answerMode, setAnswerMode, inverted, setInvert
     }
   }, []);
 
+   const lastIndex = useRef<number>(-1)
+
   const getRandomPair = useCallback(() => {
     if (validPairs.length === 0) return null;
-    const randomIndex = Math.floor(Math.random() * validPairs.length);
+    if (validPairs.length === 1) return validPairs[0];
+    
+    let randomIndex;
+    do {
+      randomIndex = Math.floor(Math.random() * validPairs.length);
+    } while (randomIndex === lastIndex.current);
+    
+    lastIndex.current = randomIndex;
     return validPairs[randomIndex];
-  }, [validPairs]);
+}, [validPairs]);
 
   const generateOptions = useCallback(
     (correctAnswer: string) => {

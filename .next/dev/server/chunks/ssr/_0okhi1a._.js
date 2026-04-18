@@ -638,9 +638,15 @@ function QuizMode({ pairs, answerMode, setAnswerMode, inverted, setInverted }) {
             };
         }
     }, []);
+    const lastIndex = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(-1);
     const getRandomPair = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCallback"])(()=>{
         if (validPairs.length === 0) return null;
-        const randomIndex = Math.floor(Math.random() * validPairs.length);
+        if (validPairs.length === 1) return validPairs[0];
+        let randomIndex;
+        do {
+            randomIndex = Math.floor(Math.random() * validPairs.length);
+        }while (randomIndex === lastIndex.current)
+        lastIndex.current = randomIndex;
         return validPairs[randomIndex];
     }, [
         validPairs
@@ -785,17 +791,17 @@ function QuizMode({ pairs, answerMode, setAnswerMode, inverted, setInverted }) {
                     children: "Нет валидных пар. Добавьте пары в режиме редактора"
                 }, void 0, false, {
                     fileName: "[project]/components/QuizMode.tsx",
-                    lineNumber: 161,
+                    lineNumber: 170,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/QuizMode.tsx",
-                lineNumber: 160,
+                lineNumber: 169,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/components/QuizMode.tsx",
-            lineNumber: 159,
+            lineNumber: 168,
             columnNumber: 7
         }, this);
     }
@@ -817,12 +823,12 @@ function QuizMode({ pairs, answerMode, setAnswerMode, inverted, setInverted }) {
                                         children: "Режим ответа"
                                     }, void 0, false, {
                                         fileName: "[project]/components/QuizMode.tsx",
-                                        lineNumber: 177,
+                                        lineNumber: 186,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/components/QuizMode.tsx",
-                                    lineNumber: 176,
+                                    lineNumber: 185,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -835,7 +841,7 @@ function QuizMode({ pairs, answerMode, setAnswerMode, inverted, setInverted }) {
                                             children: "3 варианта"
                                         }, void 0, false, {
                                             fileName: "[project]/components/QuizMode.tsx",
-                                            lineNumber: 180,
+                                            lineNumber: 189,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -845,7 +851,7 @@ function QuizMode({ pairs, answerMode, setAnswerMode, inverted, setInverted }) {
                                             children: "Все значения"
                                         }, void 0, false, {
                                             fileName: "[project]/components/QuizMode.tsx",
-                                            lineNumber: 187,
+                                            lineNumber: 196,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -855,19 +861,19 @@ function QuizMode({ pairs, answerMode, setAnswerMode, inverted, setInverted }) {
                                             children: "Ручной ввод"
                                         }, void 0, false, {
                                             fileName: "[project]/components/QuizMode.tsx",
-                                            lineNumber: 194,
+                                            lineNumber: 203,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/QuizMode.tsx",
-                                    lineNumber: 179,
+                                    lineNumber: 188,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/QuizMode.tsx",
-                            lineNumber: 175,
+                            lineNumber: 184,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -881,14 +887,14 @@ function QuizMode({ pairs, answerMode, setAnswerMode, inverted, setInverted }) {
                                             className: "w-4 h-4"
                                         }, void 0, false, {
                                             fileName: "[project]/components/QuizMode.tsx",
-                                            lineNumber: 206,
+                                            lineNumber: 215,
                                             columnNumber: 15
                                         }, this),
                                         "Инвертировать"
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/QuizMode.tsx",
-                                    lineNumber: 205,
+                                    lineNumber: 214,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$switch$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Switch"], {
@@ -898,13 +904,13 @@ function QuizMode({ pairs, answerMode, setAnswerMode, inverted, setInverted }) {
                                     className: "scale-150"
                                 }, void 0, false, {
                                     fileName: "[project]/components/QuizMode.tsx",
-                                    lineNumber: 209,
+                                    lineNumber: 218,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/QuizMode.tsx",
-                            lineNumber: 204,
+                            lineNumber: 213,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -912,18 +918,18 @@ function QuizMode({ pairs, answerMode, setAnswerMode, inverted, setInverted }) {
                             children: inverted ? "Показывается значение, нужно ввести ключ" : "Показывается ключ, нужно ввести значение"
                         }, void 0, false, {
                             fileName: "[project]/components/QuizMode.tsx",
-                            lineNumber: 216,
+                            lineNumber: 225,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/QuizMode.tsx",
-                    lineNumber: 174,
+                    lineNumber: 183,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/QuizMode.tsx",
-                lineNumber: 173,
+                lineNumber: 182,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Card"], {
@@ -935,17 +941,17 @@ function QuizMode({ pairs, answerMode, setAnswerMode, inverted, setInverted }) {
                         children: winStreak
                     }, void 0, false, {
                         fileName: "[project]/components/QuizMode.tsx",
-                        lineNumber: 224,
+                        lineNumber: 233,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/components/QuizMode.tsx",
-                    lineNumber: 223,
+                    lineNumber: 232,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/QuizMode.tsx",
-                lineNumber: 222,
+                lineNumber: 231,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Card"], {
@@ -960,7 +966,7 @@ function QuizMode({ pairs, answerMode, setAnswerMode, inverted, setInverted }) {
                                 children: currentQuestion.question
                             }, void 0, false, {
                                 fileName: "[project]/components/QuizMode.tsx",
-                                lineNumber: 231,
+                                lineNumber: 240,
                                 columnNumber: 13
                             }, this),
                             answerMode === "manual" ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -976,7 +982,7 @@ function QuizMode({ pairs, answerMode, setAnswerMode, inverted, setInverted }) {
                                         disabled: !!feedback
                                     }, void 0, false, {
                                         fileName: "[project]/components/QuizMode.tsx",
-                                        lineNumber: 237,
+                                        lineNumber: 246,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -985,13 +991,13 @@ function QuizMode({ pairs, answerMode, setAnswerMode, inverted, setInverted }) {
                                         children: "Ответить"
                                     }, void 0, false, {
                                         fileName: "[project]/components/QuizMode.tsx",
-                                        lineNumber: 246,
+                                        lineNumber: 255,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/QuizMode.tsx",
-                                lineNumber: 236,
+                                lineNumber: 245,
                                 columnNumber: 15
                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "grid grid-cols-2 md:grid-cols-3 gap-3",
@@ -1006,28 +1012,28 @@ function QuizMode({ pairs, answerMode, setAnswerMode, inverted, setInverted }) {
                                         children: option
                                     }, idx, false, {
                                         fileName: "[project]/components/QuizMode.tsx",
-                                        lineNumber: 253,
+                                        lineNumber: 262,
                                         columnNumber: 19
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/components/QuizMode.tsx",
-                                lineNumber: 251,
+                                lineNumber: 260,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/QuizMode.tsx",
-                        lineNumber: 230,
+                        lineNumber: 239,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/components/QuizMode.tsx",
-                    lineNumber: 229,
+                    lineNumber: 238,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/QuizMode.tsx",
-                lineNumber: 228,
+                lineNumber: 237,
                 columnNumber: 7
             }, this),
             feedback === "success" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1036,12 +1042,12 @@ function QuizMode({ pairs, answerMode, setAnswerMode, inverted, setInverted }) {
                     className: "w-32 h-32 text-green-500 animate-ping opacity-50"
                 }, void 0, false, {
                     fileName: "[project]/components/QuizMode.tsx",
-                    lineNumber: 282,
+                    lineNumber: 291,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/QuizMode.tsx",
-                lineNumber: 281,
+                lineNumber: 290,
                 columnNumber: 9
             }, this),
             feedback === "error" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1050,18 +1056,18 @@ function QuizMode({ pairs, answerMode, setAnswerMode, inverted, setInverted }) {
                     className: "w-32 h-32 text-red-500 animate-pulse opacity-50"
                 }, void 0, false, {
                     fileName: "[project]/components/QuizMode.tsx",
-                    lineNumber: 287,
+                    lineNumber: 296,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/QuizMode.tsx",
-                lineNumber: 286,
+                lineNumber: 295,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/QuizMode.tsx",
-        lineNumber: 172,
+        lineNumber: 181,
         columnNumber: 5
     }, this);
 }
